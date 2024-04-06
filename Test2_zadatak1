@@ -1,0 +1,25 @@
+import csv
+import pandas
+
+
+data = pandas.read_csv('train_and_test2.csv')
+
+#print(data)
+
+#print(data['Age'])
+maksimalna_vrijednost = max(data['Age'])
+minimalna_vrijednost = min(data['Age'])
+prosjecne_vrijednosti = []
+
+
+for i in data.keys():
+    prosjecne_vrijednosti.append(sum(data[i])/len(data[i]))
+
+
+prosjecna_vrijednost = sum(data['Age'])/len(data['Age'])
+
+procentualna_razlika = (maksimalna_vrijednost-prosjecna_vrijednost)/maksimalna_vrijednost*100
+
+data['Age']= data['Age']/maksimalna_vrijednost
+
+data.to_csv('train_and_test2.csv')
