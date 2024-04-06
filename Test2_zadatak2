@@ -1,0 +1,15 @@
+import requests
+import bs4
+
+url = 'https://www.realitica.com/hr/listing/3229484'
+
+res= requests.get(url)
+
+
+print(res.status_code)
+
+soup = bs4.BeautifulSoup(res.text, 'html.parser')
+
+objekat = soup.find('div').get(id ='listing_body')
+
+print(objekat)
